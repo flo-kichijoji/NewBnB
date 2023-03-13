@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # devise_for :users
-  # devise_for :users
-
+  root to: "pages#home"
   devise_for :users, skip: [:sessions]
   as :user do
     get 'signin', to: 'devise/sessions#new', as: :new_user_session
@@ -9,7 +8,6 @@ Rails.application.routes.draw do
     match 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
   end
 
-  root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
