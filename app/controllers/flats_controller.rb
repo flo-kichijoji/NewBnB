@@ -1,4 +1,8 @@
 class FlatsController < ApplicationController
+
+  def index
+    @flats = Flat.all
+
   # This action uses query string parameters because it gets run
   # by an HTTP GET request, but this does not make any difference
   # to how the parameters are accessed. The URL for
