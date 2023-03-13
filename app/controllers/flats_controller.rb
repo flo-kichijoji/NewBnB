@@ -13,6 +13,10 @@ class FlatsController < ApplicationController
     end
   end
 
+  def new
+    @flat = Flat.new
+  end
+
   # This action uses POST parameters. They are most likely coming
   # from an HTML form that the user has submitted. The URL for
   # this RESTful request will be "/flats", and the data will be
