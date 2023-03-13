@@ -1,14 +1,11 @@
 class FlatsController < ApplicationController
-
-  def index
-    @flats = Flat.all
-
   # This action uses query string parameters because it gets run
   # by an HTTP GET request, but this does not make any difference
   # to how the parameters are accessed. The URL for
   # this action would look like this to list activated
   # flats: /flats?status=activated
   def index
+    @flats = Flat.all
     if params[:status] == "activated"
       @flats = Flat.activated
     else
