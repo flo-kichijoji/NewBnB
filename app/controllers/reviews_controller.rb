@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.flat = @flat
-    @review.user = User.find(params[:review][:user_id])
+    @review.user = current_user
 
     if @review.save
       redirect_to flat_path(@flat)
