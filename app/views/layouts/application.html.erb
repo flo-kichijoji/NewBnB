@@ -14,9 +14,9 @@
     <!-- Navbar -->
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <%= link_to root_path, class:"navbar-brand" do%>
           <%= image_tag "airbnb_logo.png", class: "airbnb-logo" %>
-        </a>
+        <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,11 +47,11 @@
     <!-- Footer -->
     <div class="footer">
       <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/flo-kichijoji" target="_blank" id="flo-git"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/itsleonardog" target="_blank" id="leo-git"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/paulynompico" target="_blank" id="pau-git"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/philipposophos" target="_blank" id="phil-git"><i class="fab fa-github"></i></a>
+
       </div>
       <div class="footer-copyright">
         © MemoMio Team - Le Wagon
