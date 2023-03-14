@@ -4,3 +4,5 @@
   <%= link_to flat.name, flat_path(flat) %>
   <%= link_to "Delete", flat_path(flat), method: :delete, data: { confirm: "Are you sure you want to delete this flat?" } %>
 <% end %>
+
+<%= link_to "New flat", new_flat_path if policy(Flat).new? %>

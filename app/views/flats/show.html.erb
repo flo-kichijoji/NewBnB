@@ -1,3 +1,9 @@
+<!-- [flo] -->
+<% if policy(@flat).edit? %>
+  <%= link_to "Edit this flatt", edit_flat_path(@flat) %> |
+<% end %>
+<%= button_to "Destroy this flat", @flat, method: :delete if policy(@flat).destroy? %>
+<!-- [flo] -->
 <h1><%= @flat.name %></h1>
 
 <p><%= @flat.description %></p>
