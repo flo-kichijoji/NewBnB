@@ -7,41 +7,44 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%# <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <!-- Navbar -->
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <div class="container-fluid">
-        <%= link_to root_path, class:"navbar-brand" do%>
-          <%= image_tag "airbnb_logo.png", class: "airbnb-logo" %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top px-3">
+      <%= link_to root_path, class:"navbar-brand" do %>
+        <%= image_tag "airbnb_logo.png", class: "airbnb-logo", style:"width:50px;" %>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 pt-3">
+          <li class="nav-item active">
+            <p><%= link_to "VIEW FLATS", flats_path, class:"nav-link"%></p>
+          </li>
+          <li class="nav-item">
+            <p><%= link_to "ADD NEW FLAT", new_flat_path, class:"nav-link" %></p>
+          </li>
+          <li class="nav-item">
+            <p><%= link_to "LOGIN", new_user_session_path, class:"nav-link" %></p>
+          </li>
+          <li class="nav-item">
+            <p><%= link_to "SIGNOUT", destroy_user_session_path, class:"nav-link" %></p>
+          </li>
+          <li class="nav-item">
+            <p><%= link_to "REGISTER", new_user_registration_path, class:"nav-link" %></p>
+          </li>
+        </ul>
+        <%= form_tag flats_path, :method => "get", class:"d-flex" do %>
+          <%= text_field_tag(:search, params[:search], class:'form-control me-2', placeholder:'Flat name') %>
+          <%= submit_tag("Search", :name => nil, :class => "btn btn-outline-success" ) %>
         <% end %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">NewBnB your home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Sign up</a>
-                  <a class="dropdown-item" href="#">Log in</a>
-                  <a class="dropdown-item" href="#">NewBnB your home</a>
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
-                </div>
-              </li>
-              <!--li class="nav-item"-->
-              <!--/li-->
-          </ul>
-        </div>
       </div>
-    </div>
+    </nav>
+
+    <!-- Yield -->
+    
     <%= yield %>
 
     <!-- Footer -->
