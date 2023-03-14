@@ -1,4 +1,6 @@
 class FlatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def new
     @flat = Flat.new
     authorize @flat
