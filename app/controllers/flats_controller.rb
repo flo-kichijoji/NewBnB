@@ -19,7 +19,7 @@ class FlatsController < ApplicationController
   def destroy
     @flat = Flat.find(params[:id])
     @flat.destroy
-    redirect_to flats_path
+    redirect_to flats_path, status: :see_other
   end
 
   def index
@@ -32,6 +32,7 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
+    @flat.user = current_user
     if @flat.save
       redirect_to @flat, notice: 'Successfully created an flat.'
     else
@@ -41,7 +42,6 @@ class FlatsController < ApplicationController
 
   private
 
-  # Not sure of this part below <flo>
   def flat_params
     params.require(:flat).permit(:name, :address, :description, :price, :capacity, :availability)
   end
