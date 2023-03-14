@@ -30,12 +30,18 @@
             <li class="nav-item">
               <p><%= link_to "SIGNOUT", destroy_user_session_path, class:"nav-link", data: {turbo_method: :delete} %></p>
             </li>
+            <li class="nav-item">
+              <p><%= link_to "ABOUT US", about_path, class:"nav-link" %></p>
+            </li>
           <% else %>
             <li class="nav-item active">
               <p><%= link_to "VIEW FLATS", flats_path, class:"nav-link"%></p>
             </li>
             <li class="nav-item">
               <p><%= link_to "LOGIN", new_user_session_path, class:"nav-link" %></p>
+            </li>
+            <li class="nav-item">
+              <p><%= link_to "ABOUT US", about_path, class:"nav-link" %></p>
             </li>
           <% end %>
         </ul>
@@ -60,7 +66,7 @@
 
       </div>
       <div class="footer-copyright">
-        © MemoMio Team - Le Wagon
+        © <span><%= link_to "MemoMio Team", about_path, style:"text-decoration: none; color: gray;" %></span> - <span><a href="https://www.lewagon.com" target="_blank" style="text-decoration: none; color: gray;">Le Wagon</a></span>
       </div>
     </div>
   </body>
