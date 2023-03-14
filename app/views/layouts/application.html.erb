@@ -7,7 +7,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%# <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script>
+      const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+      const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+    </script>
   </head>
 
   <body>
@@ -24,20 +28,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">NewBnB your home</a>
+                <%= link_to flats_path, class:"nav-link" do%>
+                  View Flats
+                <% end %>
               </li>
               <li class="nav-item dropdown">
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Sign up</a>
-                  <a class="dropdown-item" href="#">Log in</a>
+                  <%= link_to new_user_registration_path, class:"dropdown-item" do%>
+                    Sign up
+                  <% end %>
+                  <%= link_to new_user_session_path, class:"dropdown-item" do%>
+                    Login
+                  <% end %>
                   <a class="dropdown-item" href="#">NewBnB your home</a>
                   <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+                  <%= link_to destroy_user_session_path, class:"dropdown-item", data_turbo_method:"delete" do%>
+                    Log out
+                  <% end %>
                 </div>
               </li>
-              <!--li class="nav-item"-->
-              <!--/li-->
           </ul>
         </div>
       </div>
