@@ -16,8 +16,8 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     @flat.destroy
     redirect_to flats_path
-   end
-   
+  end
+
   def index
     @flats = Flat.all
   end
