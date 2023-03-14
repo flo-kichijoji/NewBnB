@@ -30,7 +30,7 @@
             <p><%= link_to "LOGIN", new_user_session_path, class:"nav-link" %></p>
           </li>
           <li class="nav-item">
-            <p><%= link_to "SIGNOUT", destroy_user_session_path, class:"nav-link" %></p>
+            <p><%= link_to "SIGNOUT", destroy_user_session_path, class:"nav-link", data: {turbo_method: :delete} %></p>
           </li>
           <li class="nav-item">
             <p><%= link_to "REGISTER", new_user_registration_path, class:"nav-link" %></p>
