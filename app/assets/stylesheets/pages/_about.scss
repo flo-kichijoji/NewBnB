@@ -1,0 +1,28 @@
+.about-container {
+  padding-top: 25px;
+  width: 100%;
+  background-color: rgb(230, 230, 230);
+  align-items: center;
+  text-align: center;
+}
+
+.team-cards {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.team-ctr {
+  padding-top: 30px;
+  align-items: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.team-ctr h5 {
+  margin-bottom: 20px;
+}
