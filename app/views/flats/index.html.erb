@@ -1,8 +1,15 @@
-<h1>This is the flats index page</h1>
-
-<% @flats.each do |flat| %>
-  <%= link_to flat.name, flat_path(flat) %>
-  <%= link_to "Delete", flat_path(flat), method: :delete, data: { confirm: "Are you sure you want to delete this flat?" } %>
-<% end %>
-
+<h1>Choose your next lodging</h1>
+<div class="d-flex bd-highlight flex-wrap">
+  <% x = 0 %>
+  <% @flats.each do |flat| %>
+    <% x += 1 %>
+    <div class="card text-center p-2 m-3 bd-highlight" style="width: 12rem;">
+      <%= link_to flat_path(flat), class:"card-body text-decoration-none" do %>
+        <img src="https://picsum.photos/200/300?random=<%= x %>" alt="movie poster" class="card-img-top">
+        <%= flat.name %>
+      <% end %>
+      <%= link_to "Delete", flat_path(flat), method: :delete, data: { confirm: "Are you sure you want to delete this flat?" } %>
+    </div>
+  <% end %>
+</div>
 <%= link_to "New flat", new_flat_path if policy(Flat).new? %>
