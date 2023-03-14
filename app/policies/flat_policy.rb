@@ -1,5 +1,14 @@
 class FlatPolicy < ApplicationPolicy
   class Scope < Scope
+    def resolve
+      scope.all
+      user.admin? ? scope.all : scope.where(user: user)
+    end
+
+    def new?
+      true
+    end
+
     def show?
       true
     end
@@ -14,11 +23,6 @@ class FlatPolicy < ApplicationPolicy
 
     def destroy?
       record.user == user
-    end
-
-    def resolve
-      scope.all
-      user.admin? ? scope.all : scope.where(user: user)
     end
   end
 end

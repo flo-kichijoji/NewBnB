@@ -1,6 +1,12 @@
 class FlatsController < ApplicationController
+  def new
+    @flat = Flat.new
+    authorize @flat
+  end
+
   def show
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def edit
@@ -30,11 +36,6 @@ class FlatsController < ApplicationController
     @flats = policy_scope(Flat)
   end
 
-  def new
-    @flat = Flat.new
-    authorize @flat
-  end
-
   def create
     @flat = Flat.new(flat_params)
     @restaurant.user = current_user
@@ -45,11 +46,6 @@ class FlatsController < ApplicationController
       render :new
     end
   end
-
-  def show
-    authorize @flat
-  end
-
 
   private
 
