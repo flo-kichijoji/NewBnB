@@ -3,3 +3,5 @@
 <% @flats.each do |flat| %>
 <%= flat.name %>
 <% end %>
+
+<%= link_to "New flat", new_flat_path if policy(Flat).new? %>
