@@ -11,6 +11,7 @@
       <%= button_to "Delete", flat, method: :delete %>
     </div>
   <% end %>
+
 </div>
 <%= link_to "New flat", new_flat_path if policy(Flat).new? %>
-<%= link_to "Create New Flat", new_flat_path %>
+
