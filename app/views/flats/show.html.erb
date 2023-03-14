@@ -4,3 +4,13 @@
 <% end %>
 <%= button_to "Destroy this flat", @flat, method: :delete if policy(@flat).destroy? %>
 <!-- [flo] -->
+<h1><%= @flat.name %></h1>
+
+<p><%= @flat.description %></p>
+<p><%= @flat.address %></p>
+<p><%= @flat.price %></p>
+<p><%= @flat.capacity %></p>
+<p><%= @flat.availability %></p>
+<p>
+  <%= link_to "Delete", @flat, method: :delete, data: { confirm: "Are you sure you want to delete this flat?" } %>
+</p>

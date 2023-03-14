@@ -1,4 +1,8 @@
 class FlatsController < ApplicationController
+  def show
+    @flat = Flat.find(params[:id])
+  end
+
   def edit
     @flat = Flat.find(params[:id])
     authorize @flat
@@ -45,6 +49,7 @@ class FlatsController < ApplicationController
   def show
     authorize @flat
   end
+
 
   private
 
