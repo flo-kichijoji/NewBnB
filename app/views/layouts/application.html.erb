@@ -49,16 +49,20 @@
           <%= text_field_tag(:search, params[:search], class:'form-control me-2', placeholder:'Flat name') %>
           <%= submit_tag("Search", :name => nil, :class => "btn btn-outline-success" ) %>
         <% end %>
-        <div class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <p><strong>Hey Adventurer!</strong></p>
-            <hr>
-            <%= link_to "View Flats", flats_path, class: "dropdown-item" %>
-            <%= link_to "Add New Flat", new_flat_path, class: "dropdown-item" %>
-            <%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item" %>
+        <% if user_signed_in? %>
+          <div class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <p><strong>Hey Adventurer!</strong></p>
+              <hr>
+              <%= link_to "View Flats", flats_path, class: "dropdown-item" %>
+              <%= link_to "Add New Flat", new_flat_path, class: "dropdown-item" %>
+              <%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item" %>
+            </div>
           </div>
-        </div>
+        <% else %>
+          <!-- Don't show anything -->
+        <% end %>
       </div>
     </nav>
 
