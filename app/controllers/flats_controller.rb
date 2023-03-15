@@ -34,14 +34,13 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = Flat.all
-    @flats = Flat.geocoded
+    # @flats = Flat.all
     @flats = policy_scope(Flat)
-
-    @markers = @flats.map do |flat|
+    @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
         lng: flat.longitude,
+
         info_window_html: render_to_string(partial: "info_window", locals: { flat: flat }),
         marker_html: render_to_string(partial: "marker", locals: { flat: flat })
       }

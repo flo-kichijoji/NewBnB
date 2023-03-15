@@ -18,7 +18,7 @@ SimpleForm.setup do |config|
   # Define the default class of the input wrapper of the boolean input.
   config.boolean_label_class = 'form-check-label'
 
-  # How the label text should be generated altogether with the required text.
+  # How the label text should be generated altogether with the required text.rails
   config.label_text = lambda { |label, required, explicit_label| "#{label} #{required}" }
 
   # Define the way to render check boxes / radio buttons with labels.
