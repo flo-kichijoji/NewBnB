@@ -1,21 +1,32 @@
-<h1>Choose your next lodging</h1>
-<div class="d-flex bd-highlight flex-wrap">
-  <% x = 0 %>
-  <% @flats.each do |flat| %>
-    <% x += 1 %>
-    <div class="card text-center p-2 m-3 bd-highlight" style="width: 12rem;">
-      <%= link_to flat_path(flat), class:"card-body text-decoration-none" do %>
-        <img src=<%= flat.photo %> alt="movie poster" class="card-img-top">
-        <%= flat.name %>
-      <% end %>
-    </div>
-  <% end %>
-
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="main-ctr">
+  <div class="main-content">
+    <h1>Choose your next lodging</h1>
   </div>
+</div>
 
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-wrap" style="width: 90%;">
+    <% x = 0 %>
+    <% @flats.each do |flat| %>
+      <% x += 1 %>
+      <%= link_to flat_path(flat) do %>
+        <div class="card-flat text-center p-2 m-3 bd-highlight" style="width: 24rem;">
+          <img src=<%= flat.photo %> alt="movie poster">
+          <div class="card-flat-infos">
+            <div>
+              <h2><%= flat.name %></h2>
+            </div>
+            <h2 class="card-flat-pricing">€<%= flat.price %></h2>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
 <%= link_to "New flat", new_flat_path if policy(Flat).new? %>
