@@ -3,13 +3,14 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
-
+    authorize @booking
     if @booking.save
       redirect_to flat_path(@flat)
     else

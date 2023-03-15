@@ -4,6 +4,7 @@ class FlatPolicy < ApplicationPolicy
       scope.all
       # user.admin? ? scope.all : scope.where(user: user)
     end
+  end
 
     def new?
       true
@@ -24,5 +25,4 @@ class FlatPolicy < ApplicationPolicy
     def destroy?
       record.user == user
     end
-  end
 end

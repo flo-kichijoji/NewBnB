@@ -1,9 +1,3 @@
-<!-- [flo] -->
-<% if policy(@flat).edit? %>
-  <%= link_to "Edit this flatt", edit_flat_path(@flat) %> |
-<% end %>
-<%= button_to "Destroy this flat", @flat, method: :delete if policy(@flat).destroy? %>
-<!-- [flo] -->
 <h1><%= @flat.name %></h1>
 
 <p><%= @flat.description %></p>
@@ -11,12 +5,14 @@
 <p><%= @flat.price %></p>
 <p><%= @flat.capacity %></p>
 <p><%= @flat.availability %></p>
+
 <p>
-  <%= link_to "Edit Flat", edit_flat_path(@flat) %>
+  <%= link_to "Book", new_flat_booking_path(@flat) %>
 </p>
-<p>
-  <%= button_to "Delete", @flat, method: :delete %>
-</p>
-<p>
-  <%= link_to "Create New Flat", new_flat_path %>
-</p>
+
+<!-- [flo] -->
+<% if policy(@flat).edit? %>
+  <%= link_to "Edit this flat", edit_flat_path(@flat) %> |
+<% end %>
+<%= button_to "Delete", @flat, method: :delete if policy(@flat).destroy? %>
+<!-- [flo] -->
