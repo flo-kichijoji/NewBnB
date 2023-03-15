@@ -49,17 +49,13 @@
             </li>
           <% end %>
         </ul>
-        <!-- <%= form_tag flats_path, :method => "get", class:"d-flex" do %>
-          <%= text_field_tag(:search, params[:search], class:'form-control me-2', placeholder:'Flat name') %>
-          <%= submit_tag("Search", :name => nil, :class => "btn btn-outline-success" ) %>
-        <% end %> -->
         <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-control me-2",
             placeholder: "Find a flat"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-outline-success" %>
         <% end %>
 
 
