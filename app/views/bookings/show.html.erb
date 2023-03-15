@@ -1,5 +1,5 @@
 <h1>Booking confirmation</h1>
 
 <%= @booking.flat.name %>
-<%= @booking.start_date %>
-<%= @booking.end_date %>
+<p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
+<p>Money you owe us: <%= ((@booking.end_date-@booking.start_date).to_i) * @booking.flat.price %> euros</p>
