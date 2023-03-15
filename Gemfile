@@ -62,7 +62,12 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "dotenv-rails"
 end
+
+# Pundit authorization
 gem "pundit"
+
+# PG SEarch
+gem "pg_search"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

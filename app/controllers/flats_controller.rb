@@ -34,10 +34,8 @@ class FlatsController < ApplicationController
   end
 
   def index
-    # @flats = Flat.all
     if params[:query].present?
-      sql_query = "name ILIKE :query OR address ILIKE :query"
-      @flats = policy_scope(Flat).where(sql_query, query: "%#{params[:query]}%")
+      @flats = policy_scope(Flat).search_by_name_and_address(params[:query])
     else
       @flats = policy_scope(Flat)
     end
@@ -66,7 +64,6 @@ class FlatsController < ApplicationController
 
   private
 
-  # Not sure of this part below [flo]
   def flat_params
     params.require(:flat).permit(:name, :address, :description, :price, :capacity)
   end
