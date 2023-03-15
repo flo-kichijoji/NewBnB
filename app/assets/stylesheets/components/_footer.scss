@@ -22,10 +22,23 @@ p {
   font-size: 24px;
   padding: 0px 10px;
 }
-.footer-links a:hover {
-  opacity: 1;
-  color: #FF5A5F;
-}
+
 .footer .fa-heart {
   color: #D23333;
+}
+
+#flo-git:hover {
+  color: firebrick;
+}
+
+#leo-git:hover {
+  color:darkgreen;
+}
+
+#pau-git:hover {
+  color:blueviolet;
+}
+
+#phil-git:hover {
+  color: dodgerblue;
 }
