@@ -11,7 +11,11 @@
       <% x += 1 %>
       <%= link_to flat_path(flat) do %>
         <div class="card-flat text-center p-2 m-3 bd-highlight" style="width: 24rem;">
-          <img src=<%= flat.photo %> alt="movie poster">
+          <!--Philipp added the line below to display a cloudinary image instead of an image from a url: -->
+          <% if flat.photo.attached? %>
+            <%= cl_image_tag flat.photo.key, crop: :fill %>
+            <!-- Add later: else display random image -->
+          <% end %>
           <div class="card-flat-infos">
             <div>
               <h2><%= flat.name %></h2>

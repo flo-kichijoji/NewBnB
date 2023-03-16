@@ -49,6 +49,17 @@ class FlatsController < ApplicationController
       @flats = policy_scope(Flat)
     end
 
+    # if params[:query].present?
+    #   sql_query = <<~SQL
+    #     flats.name ILIKE :query
+    #     OR flats.address ILIKE :query
+    #     OR users.email ILIKE :query
+    #   SQL
+    #   @flats = Flat.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @movies = Movie.all
+    # end
+
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
@@ -74,6 +85,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price, :capacity)
+    params.require(:flat).permit(:photo, :name, :address, :description, :price, :capacity)
   end
 end

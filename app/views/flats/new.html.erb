@@ -3,6 +3,36 @@
     <h1 class="h1-form">Create a new flat</h1>
     <p>Here you can list your flat as available to other users!</p>
 
+<<<<<<< HEAD
+<%= simple_form_for @flat do |f| %>
+  <p>
+    <%= f.input :photo, as: :file %>
+  </p>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </p>
+  <p>
+    <%= f.label :capacity %><br>
+    <%= f.number_field :capacity %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+=======
     <hr>
 
     <%= simple_form_for @flat do |f| %>
@@ -32,3 +62,4 @@
     <% end %>
   </div>
 </div>
+>>>>>>> master
