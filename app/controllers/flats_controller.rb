@@ -9,6 +9,15 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     authorize @flat
+    @markers = [
+      {
+        lat: @flat.latitude,
+        lng: @flat.longitude,
+
+        info_window_html: render_to_string(partial: "info_window", locals: { flat: @flat }),
+        marker_html: render_to_string(partial: "marker", locals: { flat: @flat })
+      }
+    ]
   end
 
   def edit
@@ -56,7 +65,7 @@ class FlatsController < ApplicationController
     @flat.user = current_user
     authorize @flat
     if @flat.save
-      redirect_to @flat, notice: 'Successfully created an flat.'
+      redirect_to @flat, notice: 'Successfully created a flat.'
     else
       render :new
     end
