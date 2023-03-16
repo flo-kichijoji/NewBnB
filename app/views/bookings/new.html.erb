@@ -1,8 +1,13 @@
-<div class="container pt-3">
-  <h1>Book <%= @flat.name %></h1>
-  <%= simple_form_for [@flat, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.submit "Book" %>
-  <% end %> 
+<div class="main-div">
+  <div class="form">
+    <div class="container pt-3">
+      <h1>Book <%= @flat.name %></h1>
+      <%= simple_form_for [@flat, @booking] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <br>
+        <%= f.submit "Book" %>
+      <% end %>
+    </div>
+  </div>
 </div>
