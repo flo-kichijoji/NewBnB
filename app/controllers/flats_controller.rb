@@ -43,8 +43,12 @@ class FlatsController < ApplicationController
   end
 
   def index
-    # @flats = Flat.all
-    @flats = policy_scope(Flat)
+    if params[:query].present?
+      @flats = policy_scope(Flat).search_by_name_and_address(params[:query])
+    else
+      @flats = policy_scope(Flat)
+    end
+
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
@@ -69,7 +73,6 @@ class FlatsController < ApplicationController
 
   private
 
-  # Not sure of this part below [flo]
   def flat_params
     params.require(:flat).permit(:name, :address, :description, :price, :capacity)
   end
