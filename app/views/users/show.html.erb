@@ -33,7 +33,7 @@
               <div>
                 <h2><%= booking.flat.name %></h2>
                 <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
-                <p>Booked by: <%= booking.user.email %></p>
+                <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
               </div>
               <% tax = ((booking.end_date-booking.start_date).to_i) * booking.flat.price * 0.12 %>
               <h2 class="card-flat-pricing">€<%= ((booking.end_date-booking.start_date).to_i) * booking.flat.price + tax %></h2>
