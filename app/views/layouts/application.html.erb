@@ -29,10 +29,13 @@
               <p><%= link_to "VIEW FLATS", flats_path, class:"nav-link"%></p>
             </li>
             <li class="nav-item">
-              <p><%= link_to "ADD NEW FLAT", new_flat_path, class:"nav-link" %></p>
+              <p><%= link_to "MY BOOKINGS", bookings_path, class:"nav-link" %></p>
             </li>
             <li class="nav-item">
-              <p><%= link_to "MY BOOKINGS", bookings_path, class:"nav-link" %></p>
+              <p><%= link_to "MY FLATS", user_path(current_user), class:"nav-link" %></p>
+            </li>
+            <li class="nav-item">
+              <p><%= link_to "ADD NEW FLAT", new_flat_path, class:"nav-link" %></p>
             </li>
             <li class="nav-item">
               <p><%= link_to "ABOUT US", about_path, class:"nav-link" %></p>
@@ -55,7 +58,7 @@
             class: "form-control me-2",
             placeholder: "Find a flat"
           %>
-          <%= submit_tag "Search", class: "btn btn-outline-success" %>
+          <%= submit_tag "Search", class: "book-button btn-outline-success" %>
         <% end %>
 
 
