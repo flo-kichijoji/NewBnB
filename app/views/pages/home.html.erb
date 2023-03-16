@@ -1,7 +1,11 @@
 <% if user_signed_in? %>
   <div class="main-ctr">
     <div class="main-content">
-      <h1>HELLO, <%= current_user.first_name.upcase %></h1>
+      <% if current_user.first_name != nil %>
+        <h1>HELLO, <%= current_user.first_name.upcase %></h1>
+      <% else %>
+        <h1>HELLO, <%= current_user.email.upcase %></h1>
+      <% end %>
     </div>
   </div>
 
