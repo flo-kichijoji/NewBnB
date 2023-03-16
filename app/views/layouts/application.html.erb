@@ -49,10 +49,20 @@
             </li>
           <% end %>
         </ul>
-        <%= form_tag flats_path, :method => "get", class:"d-flex" do %>
+        <!-- <%= form_tag flats_path, :method => "get", class:"d-flex" do %>
           <%= text_field_tag(:search, params[:search], class:'form-control me-2', placeholder:'Flat name') %>
           <%= submit_tag("Search", :name => nil, :class => "btn btn-outline-success" ) %>
+        <% end %> -->
+        <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a flat"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
+
+
         <% if user_signed_in? %>
           <div class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
