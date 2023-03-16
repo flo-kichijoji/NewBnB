@@ -1,5 +1,14 @@
 <h1>Booking confirmation</h1>
 
-<%= @booking.flat.name %>
-<p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
-<p>Money you owe us: <%= ((@booking.end_date-@booking.start_date).to_i) * @booking.flat.price %> euros</p>
+<h5><%= @booking.flat.name %></h5>
+<p><strong>From</strong> <%= @booking.start_date.strftime("%A, %b %d") %> <strong>to</strong> <%= @booking.end_date.strftime("%A, %b %d") %></p>
+<p>Price per night: <%= @booking.flat.price %> euros </p>
+<p>Total stay: <%= (@booking.end_date-@booking.start_date).to_i %> night/s</p>
+<% tax = ((@booking.end_date-@booking.start_date).to_i) * @booking.flat.price * 0.12 %>
+<p>12% tax: <%= tax %> euros</p>
+<p><strong>TOTAL PRICE: <%= ((@booking.end_date-@booking.start_date).to_i) * @booking.flat.price + tax %> euros</strong></p>
+
+<p>Host: <%= @booking.flat.user.email %>
+<p>
+  <%= link_to "Add Review", new_flat_review_path(@flat) %>
+</p>

@@ -32,7 +32,7 @@
               <p><%= link_to "ADD NEW FLAT", new_flat_path, class:"nav-link" %></p>
             </li>
             <li class="nav-item">
-              <p><%= link_to "SIGNOUT", destroy_user_session_path, class:"nav-link", data: {turbo_method: :delete} %></p>
+              <p><%= link_to "MY BOOKINGS", bookings_path, class:"nav-link" %></p>
             </li>
             <li class="nav-item">
               <p><%= link_to "ABOUT US", about_path, class:"nav-link" %></p>
@@ -55,7 +55,7 @@
             class: "form-control me-2",
             placeholder: "Find a flat"
           %>
-          <%= submit_tag "Search", class: "btn btn-outline-success" %>
+          <%= submit_tag "Search", class: "book-button btn-outline-success" %>
         <% end %>
 
 
@@ -82,7 +82,7 @@
     <!-- Footer -->
     <div class="footer">
       <div class="footer-links">
-        <p>Check our Team on GitHub:</p>
+        <p class="p-footer">Check our Team on GitHub:</p>
         <a href="https://github.com/flo-kichijoji" target="_blank" id="flo-git"><i class="fab fa-github"></i></a>
         <a href="https://github.com/itsleonardog" target="_blank" id="leo-git"><i class="fab fa-github"></i></a>
         <a href="https://github.com/philipposophos" target="_blank" id="phil-git"><i class="fab fa-github"></i></a>

@@ -2,6 +2,8 @@ class Flat < ApplicationRecord
   include PgSearch::Model
 
   belongs_to :user
+  has_many :bookings
+  has_many :reviews
   validates :name, :address, :description, :price, :capacity, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

@@ -1,4 +1,4 @@
-class BookingPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -7,14 +7,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def new?
-    true
-  end
-
-  def show?
-    true
-  end
-
-  def index?
     true
   end
 

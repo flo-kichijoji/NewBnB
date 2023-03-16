@@ -1,0 +1,11 @@
+<h1>My Bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <% if booking.user == current_user %>
+    <%= link_to flat_booking_path(booking.flat, booking) do %>
+      <%= booking.flat.name %>
+      <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
