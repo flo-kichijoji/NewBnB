@@ -26,7 +26,7 @@
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+      </div>
   </div>
 </div>
 <%= link_to "New flat", new_flat_path if policy(Flat).new? %>
