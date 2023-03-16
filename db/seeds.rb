@@ -5,7 +5,7 @@ Flat.destroy_all
 User.destroy_all
 
 puts "Creating user..."
-user = User.create!({ id: 1, email: "potato@gmail.com", password: "123456" })
+user = User.create!({ id: 1, email: "potato@gmail.com", password: "123456", first_name: "Mr. Russet", last_name: "Potato" })
 puts "Creating flat..."
 flat = Flat.create!({ name: "Treehouse in the forest", address: "Chamigny, Île-de-France, France", description: "Nice treehouse", price: 120, capacity: 4, user_id: 1, availability: true, photo: "https://images.unsplash.com/photo-1513517860393-d9bf0651bed8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHRyZWVob3VzZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" })
 puts "Creating flat..."
