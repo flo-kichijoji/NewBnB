@@ -2,6 +2,9 @@
 
 <%= simple_form_for @flat do |f| %>
   <p>
+    <%= f.input :photo, as: :file %>
+  </p>
+  <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
