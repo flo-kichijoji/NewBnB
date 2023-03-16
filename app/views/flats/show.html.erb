@@ -6,7 +6,11 @@
 <p><%= @flat.address %></p>
 <p><%= @flat.price %></p>
 <p><%= @flat.capacity %></p>
-
+<% if @flat.user.first_name != nil %>
+  <p>Host: <%= @flat.user.first_name %></p>
+<% else %>
+  <p>Host: Anonymous_<%= @flat.user.id %></p>
+<% end %>
 <p>
   <%= link_to "Book", new_flat_booking_path(@flat) %>
 </p>

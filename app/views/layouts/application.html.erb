@@ -65,9 +65,8 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <p><strong>Hey Adventurer!</strong></p>
               <hr>
-              <%= link_to "View Flats", flats_path, class: "dropdown-item" %>
-              <%= link_to "Add New Flat", new_flat_path, class: "dropdown-item" %>
-              <%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item",  data: {turbo_method: :delete} %>
             </div>
           </div>
         <% else %>
