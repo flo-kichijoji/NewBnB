@@ -35,7 +35,13 @@ class FlatsController < ApplicationController
 
   def index
     # @flats = Flat.all
-    @flats = policy_scope(Flat)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR address ILIKE :query"
+      @flats = policy_scope(Flat).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @flats = policy_scope(Flat)
+    end
+
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
