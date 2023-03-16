@@ -8,7 +8,8 @@
 <p>12% tax: <%= tax %> euros</p>
 <p><strong>TOTAL PRICE: <%= ((@booking.end_date-@booking.start_date).to_i) * @booking.flat.price + tax %> euros</strong></p>
 
-<p>Host: <%= @booking.flat.user.email %>
+<p>Host: <%= @booking.flat.user.first_name %> <%= @booking.flat.user.last_name %></p>
+<p>Reach host at <%= @booking.flat.user.email %></p>
 <p>
   <%= link_to "Add Review", new_flat_review_path(@flat) %>
 </p>
