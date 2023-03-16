@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_flat
+  before_action :set_flat, only: [:new, :create, :show]
 
   def new
     @booking = Booking.new
@@ -21,6 +21,10 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  def index
+    @bookings = policy_scope(Booking)
   end
 
   private

@@ -3,3 +3,7 @@
 <%= @booking.flat.name %>
 <p>From <%= @booking.start_date %> to <%= @booking.end_date %></p>
 <p>Money you owe us: <%= ((@booking.end_date-@booking.start_date).to_i) * @booking.flat.price %> euros</p>
+
+<p>
+  <%= link_to "Add Review", new_flat_review_path(@flat) %>
+</p>
