@@ -23,7 +23,7 @@
           <!--Philipp added the line below to display a cloudinary image instead of an image from a url: -->
           <% if flat.photo.attached? %>
             <%= cl_image_tag flat.photo.key, crop: :fill %>
-            <!-- Add later: else display random image -->
+            <!-- Optional to add later: else display random image -->
           <% end %>
           <div class="card-flat-infos">
             <div>

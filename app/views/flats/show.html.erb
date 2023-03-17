@@ -2,13 +2,16 @@
   <h1 class="text-center"><%= @flat.name %></h1>
 
     <div class="row">
-      <div class="col-4">
-        <div class="image-wrapper">
-          <img src=<%= @flat.photo %> alt="flat photo" height="400">
-        </div>
+      <!-- IMAGE BOX -->
+      <div class="col-4 show-image-box">
+          <% if @flat.photo.attached? %>
+            <%= cl_image_tag @flat.photo.key, crop: :fill %>
+            <!-- Optional to add later: else display random image -->
+          <% end %>
       </div>
 
-      <div class="col-4 d-flex">
+      <!-- TEXT BOX -->
+      <div class="col-4">
         <div class="text-wrapper w-100">
           <div class="group">
             <h4>Description:</h4>
