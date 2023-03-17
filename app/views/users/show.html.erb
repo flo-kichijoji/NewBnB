@@ -1,12 +1,15 @@
 <h1>My Flats</h1>
 
-<div class="d-flex justify-content-center">
-  <div class="d-flex flex-wrap" style="width: 90%; margin: 0 auto">
+<div class="d-flex">
+  <div class="d-flex flex-wrap justify-content-evenly" style="width: 90%; margin: 0 auto">
     <% @flats.each do |flat| %>
       <% if flat.user == current_user %>
-        <%= link_to flat_path(flat) do %>
+        <%= link_to flat_path(flat), style:"text-decoration: none;" do %>
           <div class="card-flat text-center p-2 m-3 bd-highlight" style="width: 24rem;">
-            <img src=<%= flat.photo %> alt="movie poster">
+            <% if flat.photo.attached? %>
+              <%= cl_image_tag flat.photo.key, crop: :fill %>
+            <!-- Optional to add later: else display random image -->
+            <% end %>
             <div class="card-flat-infos">
               <div>
                 <h2><%= flat.name %></h2>
@@ -22,13 +25,16 @@
 
 <h1>My Booked Flats</h1>
 
-<div class="d-flex justify-content-center">
-  <div class="d-flex flex-wrap" style="width: 90%; margin: 0 auto">
+<div class="d-flex">
+  <div class="d-flex flex-wrap justify-content-evenly" style="width: 90%; margin: 0 auto">
     <% @bookings.each do |booking| %>
       <% if booking.flat.user == current_user %>
-        <%= link_to flat_booking_path(booking.flat, booking) do %>
+        <%= link_to flat_booking_path(booking.flat, booking), style:"text-decoration: none;" do %>
           <div class="card-flat text-center p-2 m-3 bd-highlight" style="width: 24rem;">
-            <img src=<%= booking.flat.photo %> alt="movie poster">
+            <% if booking.flat.photo.attached? %>
+              <%= cl_image_tag booking.flat.photo.key, crop: :fill %>
+            <!-- Optional to add later: else display random image -->
+            <% end %>
             <div class="card-flat-infos">
               <div>
                 <h2><%= booking.flat.name %></h2>
