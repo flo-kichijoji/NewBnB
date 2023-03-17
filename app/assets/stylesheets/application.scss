@@ -12,3 +12,9 @@
 @import "components/index";
 @import "components/avatar";
 @import "pages/index";
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
