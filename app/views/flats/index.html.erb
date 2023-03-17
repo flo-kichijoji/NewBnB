@@ -2,6 +2,15 @@
   <div class="main-content">
     <h1>Choose your next lodging</h1>
   </div>
+    </ul>
+      <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control me-2",
+            placeholder: "Find a flat"
+        %>
+      <%= submit_tag "Search", class: "book-button btn-outline-success" %>
+    <% end %>
 </div>
 
 <div class="d-flex justify-content-center">
