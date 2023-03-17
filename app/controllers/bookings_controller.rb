@@ -21,10 +21,26 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
+    @markers = [
+      {
+        lat: @booking.flat.latitude,
+        lng: @booking.flat.longitude,
+
+        info_window_html: render_to_string(partial: "info_window", locals: { flat: @booking.flat }),
+        marker_html: render_to_string(partial: "marker", locals: { flat: @booking.flat })
+      }
+    ]
   end
 
   def index
     @bookings = policy_scope(Booking)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
   end
 
   private
