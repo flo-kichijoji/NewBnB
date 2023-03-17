@@ -3,7 +3,7 @@
     <h1>Choose your next lodging</h1>
   </div>
     </ul>
-        <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
+      <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
