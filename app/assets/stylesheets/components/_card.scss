@@ -1,17 +1,26 @@
 .card-flat {
+  text-decoration: none;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border-radius: 5px;
+  color: rgb(31, 31, 31);
+  transition: 0.2s all ease-in-out;
+}
+
+.card-flat a {
+  text-decoration: none;
 }
 
 .card-flat > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .card-flat h2 {
+  text-decoration: none;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
@@ -21,6 +30,7 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  text-decoration: none;
 }
 
 
@@ -30,6 +40,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  text-decoration: none;
 }
 
 .card-flat-infos .card-flat-user {
@@ -37,10 +48,15 @@
   right: 16px;
   top: -20px;
   width: 40px;
+  text-decoration: none;
 }
 
 .show-image-box > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.card-flat:hover {
+  background-color: rgba(227, 106, 130, 0.527);
 }
