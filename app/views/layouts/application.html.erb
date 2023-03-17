@@ -53,12 +53,12 @@
           <% end %>
         </ul>
         <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
+        <%= text_field_tag :query,
             params[:query],
             class: "form-control me-2",
             placeholder: "Find a flat"
           %>
-          <%= submit_tag "Search", class: "book-button btn-outline-success" %>
+        <%= submit_tag "Search", class: "book-button btn-outline-success" %>
         <% end %>
 
 
