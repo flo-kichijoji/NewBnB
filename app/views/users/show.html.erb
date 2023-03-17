@@ -1,7 +1,7 @@
 <h1>My Flats</h1>
 
-<div class="d-flex justify-content-center">
-  <div class="d-flex flex-wrap" style="width: 90%; margin: 0 auto">
+<div class="d-flex">
+  <div class="d-flex flex-wrap justify-content-evenly" style="width: 90%; margin: 0 auto">
     <% @flats.each do |flat| %>
       <% if flat.user == current_user %>
         <%= link_to flat_path(flat) do %>
@@ -25,8 +25,8 @@
 
 <h1>My Booked Flats</h1>
 
-<div class="d-flex justify-content-center">
-  <div class="d-flex flex-wrap" style="width: 90%; margin: 0 auto">
+<div class="d-flex">
+  <div class="d-flex flex-wrap justify-content-evenly" style="width: 90%; margin: 0 auto">
     <% @bookings.each do |booking| %>
       <% if booking.flat.user == current_user %>
         <%= link_to flat_booking_path(booking.flat, booking) do %>
