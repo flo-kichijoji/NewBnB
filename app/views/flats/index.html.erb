@@ -2,15 +2,6 @@
   <div class="main-content">
     <h1>Choose your next lodging</h1>
   </div>
-    </ul>
-      <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-            params[:query],
-            class: "form-control me-2",
-            placeholder: "Find a flat"
-        %>
-      <%= submit_tag "Search", class: "book-button btn-outline-success" %>
-    <% end %>
 </div>
 
 <div class="d-flex justify-content-center">
@@ -18,7 +9,7 @@
     <% x = 0 %>
     <% @flats.each do |flat| %>
       <% x += 1 %>
-      <%= link_to flat_path(flat) do %>
+      <%= link_to flat_path(flat), style:"text-decoration:none; color:#FC5C63 " do %>
         <div class="card-flat text-center p-2 m-3 bd-highlight" style="width: 24rem;">
           <!--Philipp added the line below to display a cloudinary image instead of an image from a url: -->
           <% if flat.photo.attached? %>
