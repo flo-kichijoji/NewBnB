@@ -1,11 +1,17 @@
+<script>
+  var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings'
+  });
+</script>
 <% if user_signed_in? %>
   <div class="main-ctr">
-    <div class="main-content">
+    <div class="main-content" id="typed-strings">
       <% if current_user.first_name != nil %>
         <h1>HELLO, <%= current_user.first_name.upcase %></h1>
       <% else %>
         <h1>HELLO, <%= current_user.email.upcase %></h1>
       <% end %>
+      <span id="typed"></span>
     </div>
         </ul>
         <%= form_with url: flats_path, method: :get, class: "d-flex" do %>
